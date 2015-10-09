@@ -62,7 +62,7 @@ namespace TestIndicatorsAutomation
             
             foreach (var item in currentValuesOfDropdowns)
             {
-                bool param =  parametrsPassed.Contains(item);
+                bool param = parametrsPassed.Contains(item);
                 if (!param)
                 {
                     int index = currentValuesOfDropdowns.IndexOf(item);
