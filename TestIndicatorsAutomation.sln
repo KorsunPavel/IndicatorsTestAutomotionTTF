@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestIndicatorsAutomation", "TestIndicatorsAutomation\TestIndicatorsAutomation.csproj", "{176BD0E9-89DF-4BCA-B88E-6AE02E58D127}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestsForIndicators", "UnitTestProject1\TestsForIndicators.csproj", "{905CDB61-F0F0-4CDA-ACCD-6BBF2928012A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{176BD0E9-89DF-4BCA-B88E-6AE02E58D127}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{176BD0E9-89DF-4BCA-B88E-6AE02E58D127}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{176BD0E9-89DF-4BCA-B88E-6AE02E58D127}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{176BD0E9-89DF-4BCA-B88E-6AE02E58D127}.Release|Any CPU.Build.0 = Release|Any CPU
+		{905CDB61-F0F0-4CDA-ACCD-6BBF2928012A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{905CDB61-F0F0-4CDA-ACCD-6BBF2928012A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{905CDB61-F0F0-4CDA-ACCD-6BBF2928012A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{905CDB61-F0F0-4CDA-ACCD-6BBF2928012A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
