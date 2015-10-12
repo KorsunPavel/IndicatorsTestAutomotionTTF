@@ -1,8 +1,6 @@
 ﻿using ArtOfTest.WebAii.Controls.HtmlControls;
 using ArtOfTest.WebAii.Core;
 using ArtOfTest.WebAii.TestTemplates;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Firefox;
 using System;
 using System.Text;
 using System.Threading;

@@ -6,8 +6,8 @@
     <ProjectGuid>{905CDB61-F0F0-4CDA-ACCD-6BBF2928012A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>UnitTestProject1</RootNamespace>
-    <AssemblyName>UnitTestProject1</AssemblyName>
+    <RootNamespace>TestsForIndicators</RootNamespace>
+    <AssemblyName>TestsForIndicators</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -59,14 +59,16 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="CreateNewIndicator.cs" />
-    <Compile Include="LogInTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TTFThroughPages.cs" />
     <Compile Include="TTFLoginTest.cs" />
     <Compile Include="TFFCreateNewIndictorTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\TestIndicatorAutomationSelnium\TestIndicatorAutomationSelnium.csproj">
+      <Project>{8ddb8af8-6b49-487c-92d1-712a4d840af7}</Project>
+      <Name>TestIndicatorAutomationSelnium</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TestIndicatorsAutomation\TestIndicatorsAutomation.csproj">
       <Project>{176bd0e9-89df-4bca-b88e-6ae02e58d127}</Project>
       <Name>TestIndicatorsAutomation</Name>

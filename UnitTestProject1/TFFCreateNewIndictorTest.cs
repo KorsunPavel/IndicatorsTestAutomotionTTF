@@ -21,9 +21,9 @@ namespace UnitTestProject1
         public void TestMethod1()
         {
             TTFLoginPage.GoToByUrl("~");
-            TTFLoginPage.LoginAs(TTFLoginPage.UserName = "testadmin")
-              .WithPassword("P@ssw0rd").Login();
-            TTFHomePage.IsAt(TitlesList.EnumTitlesTopBar.Home.ToString());
+           // TTFLoginPage.LoginAs(TTFLoginPage.UserName = "user40")
+           //   .WithPassword("111111").Login();
+            //TTFHomePage.IsAt(TitlesList.EnumTitlesTopBar.Home.ToString());
             //*********
             TTFHomePage.GoToItem(
                TitlesList.EnumTitlesTopBar.Administration.ToString()
@@ -35,18 +35,9 @@ namespace UnitTestProject1
             TTFIndicatorsGrid.IsAt(
                TitlesList.EnumAdminLeftBar.Indicators.ToString()
                );
-          //  TTFIndicatorsGrid.AddNew.Select(
-          //  TitlesList.EnumAdminLeftBar.Indicators.ToString());
 
-            TTFIndicatorsGrid.Edit.Select(
-               TitlesList.EnumAdminLeftBar.Indicators.ToString());
+            TTFIndicatorsGrid.TTFnewIndicatorCreate.EnterValueType("Number").AggregationType("NONE").CreateNewIndicator();
 
-
-            TTFIndicatorsGrid.GoToItem(
-                TitlesList.EnumAdminLeftBar.Indicators.ToString()
-                );
-            TTFIndicatorsGrid.Edit.Select(
-                TitlesList.EnumAdminLeftBar.Indicators.ToString());
             TTFHomePage.GoToItem(
                TitlesList.EnumTitlesTopBar.Administration.ToString()
                );

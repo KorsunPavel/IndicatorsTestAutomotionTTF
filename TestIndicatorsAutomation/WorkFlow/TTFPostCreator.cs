@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WiordPressFramework
+namespace TestIndicatorsAutomation
 {
     public static class TTFPostCreator
     {

@@ -46,11 +46,13 @@ namespace TestIndicatorsAutomation
         {
             var divWithDropdownsOptions = TTFDriver.myManager.ActiveBrowser.Find.AllByAttributes<HtmlDiv>("data-role=popup");
             var activeListItem = divWithDropdownsOptions[index].Find.ByExpression<HtmlContainerControl>("tagname=li", "id=+");
-            if (activeListItem == null)
-            {
-                return divWithDropdownsOptions[index].Find.ByAttributes<HtmlDiv>("class=~k-list-optionlabel").TextContent;
-            }
-            return activeListItem.TextContent;
+            //if (activeListItem == null)
+            //{
+            //    return divWithDropdownsOptions[index].Find.ByAttributes<HtmlDiv>("class=~k-list-optionlabel").TextContent;
+            //}
+            return activeListItem == null 
+             ? divWithDropdownsOptions[index].Find.ByAttributes<HtmlDiv>("class=~k-list-optionlabel").TextContent
+             : activeListItem.TextContent;
         }
         public static List<string> SelectDropdownsValue(string aggregationType, string ValueTypes)
         {

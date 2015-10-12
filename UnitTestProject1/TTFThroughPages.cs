@@ -30,12 +30,13 @@ namespace UnitTestProject1
         
         public void TestMethod1()
         {
-            TTFLoginPage.GoToByUrl("~/Indicators/Edit/244");
-            //TTFLoginPage.GoToByUrl("~/Indicators/Create");
-            //TTFLoginPage.LoginAs(TTFLoginPage.UserName = "user40")
-            // .WithPassword("111111").Login();
+            // TTFLoginPage.GoToByUrl("~/Indicators/Edit/244");
+            TTFLoginPage.GoToByUrl("~/Indicators/Create");
+            TTFLoginPage.LoginAs(TTFLoginPage.UserName = "user40")
+            .WithPassword("111111").Login();
 
-            TTFIdicatorCreate.EnterValueType("Number").AggregationType("NONE").CreateNewIndicator();
+            TTFIndicatorsGrid.
+            TTFnewIndicatorCreate.EnterValueType("Number").AggregationType("NONE").CreateNewIndicator();
             
             //TTFRandimDropdownSelect.DropDownsWorkList();
             //TTFTestPage.DropDownsWork();

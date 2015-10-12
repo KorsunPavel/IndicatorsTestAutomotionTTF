@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TestIndicatorsAutomation
 {
-    public class TitlesList
+    public static  class TitlesList
     {
         static string a;
         public enum EnumTitlesTopBar
