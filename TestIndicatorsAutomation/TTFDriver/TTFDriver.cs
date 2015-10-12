@@ -30,7 +30,7 @@ namespace TestIndicatorsAutomation
             mySettings = new Settings();
 
             // Set the default browser
-            mySettings.Web.DefaultBrowser = BrowserType.Chrome;
+            mySettings.Web.DefaultBrowser = BrowserType.InternetExplorer;
             mySettings.Web.BaseUrl = "https://test-indicators.azurewebsites.net";
             mySettings.Web.RecycleBrowser = true;
 

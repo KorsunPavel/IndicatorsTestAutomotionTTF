@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TTFPageAdmin\TTFAddNewIndicator.cs" />
     <Compile Include="WorkFlow\TTFCreatingIndicatorAssistant.cs" />
     <Compile Include="WorkFlow\TTFPostCreator.cs" />
     <Compile Include="TTFPageAdmin\TTFAdministrationSection.cs" />

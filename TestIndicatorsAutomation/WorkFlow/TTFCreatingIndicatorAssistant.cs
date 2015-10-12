@@ -54,7 +54,7 @@ namespace TestIndicatorsAutomation
              ? divWithDropdownsOptions[index].Find.ByAttributes<HtmlDiv>("class=~k-list-optionlabel").TextContent
              : activeListItem.TextContent;
         }
-        public static List<string> SelectDropdownsValue(string aggregationType, string ValueTypes)
+        public static List<string> SelectDropdownsValue(string ValueTypes, string aggregationType)
         {
            
             ListsCreating();
@@ -87,7 +87,7 @@ namespace TestIndicatorsAutomation
                         foreach (var item in currentValuesOfDropdowns)
                         {
                             if (defaultValuesOfDropdowns.Contains(item))
-                            throw new Exception("Creating on Number indicator was failed");
+                            throw new Exception("Creating of  indicator was failed");
                         }
                 }
             else throw new Exception("Creating on Number indicator was failed 222");

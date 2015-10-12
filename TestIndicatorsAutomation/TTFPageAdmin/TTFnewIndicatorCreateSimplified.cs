@@ -12,16 +12,16 @@ using System.Threading;
 using System.Drawing;
 using ArtOfTest.WebAii.TestTemplates;
 using ArtOfTest.Common.UnitTesting;
-using TestIndicatorsAutomation;
+using WiordPressFramework;
 using ArtOfTest.WebAii.ObjectModel;
 using System.Collections;
 using ArtOfTest.Common;
 
 namespace TestIndicatorsAutomation
 {
-    public class TTFnewIndicatorCreate
+    public  class TTFnewIndicatorCreate
     {
-
+        
         //interface creating
         public static EnterIndicatorsData EnterValueType(string typeOfIndicator)
         {
@@ -48,14 +48,17 @@ namespace TestIndicatorsAutomation
             // *********Creating of the Number type indicator**********
             public void CreateNewIndicator()
             {
-                //* Create tab checking
-                //   var tabCreate = TTFDriver.myManager.ActiveBrowser.Find.ByContent<HtmlAnchor>("Create");
-                //    Assert.IsNotNull(tabCreate, "Create page is null");
-                //  tabCreate.AssertAttribute().Value("class", ArtOfTest.Common.StringCompareType.Contains, "edit");
-                //      tabCreate.AssertContent().TextContent(ArtOfTest.Common.StringCompareType.Same, "Create");
 
-                //1. Title filling 
-                var newTitle = TTFDriver.myManager.ActiveBrowser.Find.AllByAttributes<HtmlInputText>("type=text");
+                
+            //* Create tab checking
+            //   var tabCreate = TTFDriver.myManager.ActiveBrowser.Find.ByContent<HtmlAnchor>("Create");
+            //    Assert.IsNotNull(tabCreate, "Create page is null");
+            //  tabCreate.AssertAttribute().Value("class", ArtOfTest.Common.StringCompareType.Contains, "edit");
+            //      tabCreate.AssertContent().TextContent(ArtOfTest.Common.StringCompareType.Same, "Create");
+
+
+            //1. Title filling 
+            var newTitle = TTFDriver.myManager.ActiveBrowser.Find.AllByAttributes<HtmlInputText>("type=text");
                 //var title = TTFDriver.myManager.ActiveBrowser.Find.AllByAttributes<HtmlInputText>("type=text",);
                 //	* Store the title in variable _title for further testing
                 newTitle[0].Text = "";
@@ -72,38 +75,40 @@ namespace TestIndicatorsAutomation
 
                 //3. Description adding
                 var textArea = TTFDriver.myManager.ActiveBrowser.Find.ByAttributes<HtmlTextArea>("placeholder=Enter Indicator description in  English");
-                textArea.MouseClick();
+                textArea.MouseClick(); 
                 TTFDriver.myManager.Desktop.KeyBoard.TypeText("This indictor was created with Teleric Test Framework");
 
                 // 4-7 dropdown selecting algoritm
 
-                //   4.Category select(n)
+                allNewValuesList.AddRange(TTFCreatingIndicatorAssistant.SelectDropdownsValue( _aggregationType, _valueTypeOfIndicator));
+
+                //	4. Category select (n)
                 //* Store the previous Category choice in the _category variable for further testing
-                int drodoownsCount = TTFDriver.myManager.ActiveBrowser.Find.AllByAttributes<HtmlDiv>("data-role=popup").Count;
-                for (int i = 0; i < drodoownsCount; i++)
-                {
-                    string previousItem = TTFCreatingIndicatorAssistant.CurrentDropdownValuGet(i);
-                    TTFCreatingIndicatorAssistant.DoSelecting(i);
-                    string newItem = TTFCreatingIndicatorAssistant.CurrentDropdownValuGet(i);
-                    Assert.IsNotNull(previousItem);
-                    Assert.IsNotNull(newItem);
-                    Assert.AreNotEqual(previousItem, newItem, " Category select failed");
+                //int drodoownsCount = TTFDriver.myManager.ActiveBrowser.Find.AllByAttributes<HtmlDiv>("data-role=popup").Count;
+                //for (int i = 0; i < drodoownsCount; i++)
+                //{
+                //    string previousItem = TTFCreatingIndicatorAssistant.CurrentDropdownValuGet(i);
+                //    TTFCreatingIndicatorAssistant.DoSelecting(i);
+                //    string newItem = TTFCreatingIndicatorAssistant.CurrentDropdownValuGet(i);
+                //    Assert.IsNotNull(previousItem);
+                //    Assert.IsNotNull(newItem);
+                //    Assert.AreNotEqual(previousItem, newItem, " Category select failed");
 
-                    //}
+                //}
 
-                    //string previousCategory = TTFCreatingIndicatorAssistant.CurrentDropdownValuGet(0);
-                    //TTFCreatingIndicatorAssistant.DoSelecting(0);
-                    //string newCategory = TTFCreatingIndicatorAssistant.CurrentDropdownValuGet(0);
+                //string previousCategory = TTFCreatingIndicatorAssistant.CurrentDropdownValuGet(0);
+                //TTFCreatingIndicatorAssistant.DoSelecting(0);
+                //string newCategory = TTFCreatingIndicatorAssistant.CurrentDropdownValuGet(0);
 
-                    ////* Verify that new value doesn't equal the previous one, 
-                    //Assert.AreNotEqual(newCategory, previousCategory, " Category select failed");
+                ////* Verify that new value doesn't equal the previous one, 
+                //Assert.AreNotEqual(newCategory, previousCategory, " Category select failed");
 
-                    ////* Store the new Category choice in the _category variable for further testing
-                    //allNewValuesList.Add(newCategory);
+                ////* Store the new Category choice in the _category variable for further testing
+                //allNewValuesList.Add(newCategory);
 
-                    //5. Indicator type selecting (Primary)
-                    //* Primary is default so make radio-button checking, must be true
-                    HtmlInputRadioButton radioPrimapry2 = TTFDriver.myManager.ActiveBrowser.Find.ByContent<HtmlControl>("Primary").
+                //5. Indicator type selecting (Primary)
+                //* Primary is default so make radio-button checking, must be true
+                HtmlInputRadioButton radioPrimapry2 = TTFDriver.myManager.ActiveBrowser.Find.ByContent<HtmlControl>("Primary").
                 Find.ByAttributes<HtmlInputRadioButton>("type=radio");
 
                 HtmlInputRadioButton radioCalculated = TTFDriver.myManager.ActiveBrowser.Find.ByContent<HtmlControl>("Calculated").
@@ -191,7 +196,7 @@ namespace TestIndicatorsAutomation
 
                 increaseOrderNumber.ScrollToVisible();
                 increaseOrderNumber.MouseClick(MouseClickType.LeftClick, 0, 0, OffsetReference.AbsoluteCenter);
-
+                
                 //* Store the current value  in the  _order_number variable for further testing
                 TTFDriver.myManager.ActiveBrowser.WaitUntilReady();
                 TTFDriver.myManager.ActiveBrowser.Find.ByExpression<HtmlDiv>("ng-include=~additional-info").
@@ -206,7 +211,7 @@ namespace TestIndicatorsAutomation
                 TTFDriver.myManager.ActiveBrowser.Find.ByExpression<HtmlDiv>("ng-include=~additional-info").MouseClick();
                 string valueOfAtributeNewNumberOrder = TTFDriver.myManager.ActiveBrowser.Find.ByExpression<HtmlDiv>("ng-include=~additional-info").
                 Find.ByExpression<HtmlInputText>("aria-valuenow=+").Attributes.Single(xx => xx.Name == "aria-valuenow").Value;
-
+                
                 allNewValuesList.Add(valueOfAtributeNewNumberOrder);
                 //* Verify that current value doesn't equal to previous one
                 Assert.AreNotEqual(valueOfAtributeNewNumberOrder, valueOfAtributeCurrenOrder, "the Previous order number equales the current");
@@ -214,42 +219,42 @@ namespace TestIndicatorsAutomation
 
                 //11. Saving
                 TTFDriver.myManager.ActiveBrowser.AutoWaitUntilReady = true;
-                TTFDriver.myManager.ActiveBrowser.Find.ByAttributes<HtmlButton>("type=submit").Click();
+                 TTFDriver.myManager.ActiveBrowser.Find.ByAttributes<HtmlButton>("type=submit").Click();
+                
+        HtmlFindExpression exp = new HtmlFindExpression("TagName=h2", "InnerText=" + titleString);
+        TTFDriver.myManager.ActiveBrowser.WaitForElement(exp, 10000, false);
 
-                HtmlFindExpression exp = new HtmlFindExpression("TagName=h2", "InnerText=" + titleString);
-                TTFDriver.myManager.ActiveBrowser.WaitForElement(exp, 10000, false);
+        var tagname = TTFDriver.myManager.ActiveBrowser.Find.ByExpression<HtmlContainerControl>(exp);
+        tagname.AssertContent().InnerText(ArtOfTest.Common.StringCompareType.Contains, titleString);
+        
+        var b7 = TTFDriver.myManager.ActiveBrowser.Find.ByExpression<HtmlAnchor>("InnerText=Edit");
 
-                var tagname = TTFDriver.myManager.ActiveBrowser.Find.ByExpression<HtmlContainerControl>(exp);
-                tagname.AssertContent().InnerText(ArtOfTest.Common.StringCompareType.Contains, titleString);
+        TTFDriver.myManager.ActiveBrowser.Find.ByAttributes<HtmlAnchor>("href=/Indicators").Click();
 
-                var b7 = TTFDriver.myManager.ActiveBrowser.Find.ByExpression<HtmlAnchor>("InnerText=Edit");
+        TTFDriver.myManager.ActiveBrowser.WaitUntilReady();
+        TTFDriver.myManager.ActiveBrowser.WaitForAjax(5000);
 
-                TTFDriver.myManager.ActiveBrowser.Find.ByAttributes<HtmlAnchor>("href=/Indicators").Click();
+        var newIndicatorRow = TTFDriver.myManager.ActiveBrowser.Find.AllByTagName<HtmlTableRow>("tr").
+        Where(c => c.InnerText.Contains(titleString)).FirstOrDefault().Find.AllByTagName<HtmlTableCell>("td")
+        .Where(c => c.InnerText !="");
 
-                TTFDriver.myManager.ActiveBrowser.WaitUntilReady();
-                TTFDriver.myManager.ActiveBrowser.WaitForAjax(5000);
+        foreach (var item in newIndicatorRow)
+        {
+             allNewValuesListInGrid.Add(item.InnerText);
+        }
+        string activeInactiveCell = TTFDriver.myManager.ActiveBrowser.Find.AllByTagName<HtmlTableRow>("tr")
+        .Where(c => c.InnerText.Contains(titleString)).FirstOrDefault().Find.ByTagIndex<HtmlSpan>("span", 0).Attributes.Single(x => x.Name == "title").Value;
+        var activeInactiveCell2 = TTFDriver.myManager.ActiveBrowser.Find.AllByTagName<HtmlTableRow>("tr")
+        .Where(c => c.InnerText.Contains(titleString)).FirstOrDefault().Find.ByExpression<HtmlSpan>("title=+").Attributes.Single(x => x.Name == "title").Value;
 
-                var newIndicatorRow = TTFDriver.myManager.ActiveBrowser.Find.AllByTagName<HtmlTableRow>("tr").
-                Where(c => c.InnerText.Contains(titleString)).FirstOrDefault().Find.AllByTagName<HtmlTableCell>("td")
-                .Where(c => c.InnerText != "");
-
-                foreach (var item in newIndicatorRow)
-                {
-                    allNewValuesListInGrid.Add(item.InnerText);
-                }
-                string activeInactiveCell = TTFDriver.myManager.ActiveBrowser.Find.AllByTagName<HtmlTableRow>("tr")
-                .Where(c => c.InnerText.Contains(titleString)).FirstOrDefault().Find.ByTagIndex<HtmlSpan>("span", 0).Attributes.Single(x => x.Name == "title").Value;
-                var activeInactiveCell2 = TTFDriver.myManager.ActiveBrowser.Find.AllByTagName<HtmlTableRow>("tr")
-                .Where(c => c.InnerText.Contains(titleString)).FirstOrDefault().Find.ByExpression<HtmlSpan>("title=+").Attributes.Single(x => x.Name == "title").Value;
-
-                allNewValuesListInGrid.Add(activeInactiveCell);
-                Assert.IsTrue(allNewValuesList.Count == allNewValuesListInGrid.Count, "count of elements in the compared list don't match");
-                foreach (var item in allNewValuesListInGrid)
-                {
-                    Assert.IsTrue(allNewValuesList.Contains(item), "new values in the indicator's grid don't match with the created values");
-                }
-            }
+         allNewValuesListInGrid.Add(activeInactiveCell);
+         Assert.IsTrue(allNewValuesList.Count == allNewValuesListInGrid.Count, "count of elements in the compared list don't match");
+         foreach (var item in allNewValuesListInGrid)
+              {
+                    Assert.IsTrue(allNewValuesList.Contains(item),"new values in the indicator's grid don't match with the created values");
+              }
         }
     }
+  }
 }
 

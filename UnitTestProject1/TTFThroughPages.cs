@@ -36,7 +36,7 @@ namespace UnitTestProject1
             .WithPassword("111111").Login();
 
             TTFIndicatorsGrid.
-            TTFnewIndicatorCreate.EnterValueType("Number").AggregationType("NONE").CreateNewIndicator();
+            TTFnewIndicatorCreate.EnterValueType("Number").AggregationType("NONE").CreateIndicator();
             
             //TTFRandimDropdownSelect.DropDownsWorkList();
             //TTFTestPage.DropDownsWork();
