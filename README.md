@@ -5,7 +5,7 @@ In this solution is still available selenium project but it's been frozen for a 
 So don't use IndicatorsTestAutomotionTTFSelenium project
 
 Now the testing framework coded with Telerik Test Framework (TTF)
-By this time only rwo tests implemeted Log in and CreateNewIndicatorTest
+By this time only two tests was implemeted Log in and CreateNewIndicatorTest
 
 For starters
 
