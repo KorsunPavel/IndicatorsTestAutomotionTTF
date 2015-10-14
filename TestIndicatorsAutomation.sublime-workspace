@@ -1,0 +1,300 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "UnitTestProject1/TTFLoginTest.cs",
+			"settings":
+			{
+				"buffer_size": 1125,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "using System;\nusing System.Collections.Generic;\nusing System.Collections.ObjectModel;\nusing System.Linq;\nusing System.Text;\nusing System.Threading.Tasks;\nusing ArtOfTest.WebAii.Controls.HtmlControls;\nusing TestIndicatorsAutomation;\nusing ArtOfTest.WebAii.Core;\nusing System.Threading;\nusing System.Drawing;\nusing ArtOfTest.WebAii.TestTemplates;\nusing ArtOfTest.Common.UnitTesting;\n\nnamespace TestIndicatorsAutomation\n{\n    public class TTFHomePage : TTFLoginPage\n    {\n        public void LanguageChecker()\n        {\n        	TTFDriver.\n            TTFDriver.myManager.ActiveBrowser.Find.ByAttributes<HtmlAnchor>(\"href=~MySettings\").Click();\n            if (TTFDriver.myManager.ActiveBrowser.Find.ByAttributes<HtmlOption>(\"selected=selected\").Text.Contains(\"English\"))\n                CheckUserName();\n            TTFDriver.myManager.ActiveBrowser.Find.ByTagIndex<HtmlSelect>(\"select\", 0).SelectByText(\"English\");\n            TTFDriver.myManager.ActiveBrowser.GoBack();\n        }\n\n        public static void CheckUserName()\n        {\n            Assert.IsTrue(\n                TTFDriver.myManager.ActiveBrowser.Find.ByTagIndex<HtmlContainerControl>(\"fieldset\", 0)\n                .Find.ByTagIndex<HtmlDiv>(\"div\", 1).TextContent.Contains(UserName)\n                , \"account name is wrong logging failed\");\n        }\n        // three methods are inherited derived from base class: GoToItem , IsAt , GoToByUrl\n    }\n}\n\n\n",
+			"file": "TestIndicatorsAutomation/TTFTopBarPages/TTFHomePage.cs",
+			"file_size": 1454,
+			"file_write_time": 130892983504680000,
+			"settings":
+			{
+				"buffer_size": 1418,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 213.0,
+		"last_filter": "pacinsta",
+		"selected_items":
+		[
+			[
+				"pacinsta",
+				"Package Control: List Packages"
+			],
+			[
+				"pcins",
+				"Package Control: Install Package"
+			],
+			[
+				"sideb",
+				"View: Toggle Open Files in Side Bar"
+			],
+			[
+				"pcinst",
+				"Package Control: Install Package"
+			],
+			[
+				"pcinstall",
+				"Package Control: Install Package"
+			],
+			[
+				"pc",
+				"Preferences: Browse Packages"
+			],
+			[
+				"",
+				"Package Control: List Packages"
+			],
+			[
+				"pack",
+				"Preferences: Browse Packages"
+			]
+		],
+		"width": 549.0
+	},
+	"console":
+	{
+		"height": 370.0,
+		"history":
+		[
+			"cd C:\\Users\\Admin\\AppData\\Roaming\\Sublime Text 3\\Packages",
+			"cd {C:\\Users\\Admin\\AppData\\Roaming\\Sublime Text 3}/Packages",
+			"cd {C:\\Users\\Admin\\AppData\\Roaming\\Sublime Text 3\\Packages}/Packages",
+			"cd C:\\Users\\Admin\\AppData\\Roaming\\Sublime Text 3\\Packages",
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/D/Google Диск СТАРЫЙ/Selenium/TestIndicatorsAutomation",
+		"/D/Google Диск СТАРЫЙ/Selenium/TestIndicatorsAutomation/TestIndicatorsAutomation",
+		"/D/Google Диск СТАРЫЙ/Selenium/TestIndicatorsAutomation/TestIndicatorsAutomation/TTFTopBarPages"
+	],
+	"file_history":
+	[
+		"/C/Users/Admin/AppData/Roaming/Sublime Text 3/Packages/OmniSharp/PrebuiltOmniSharpServer/config.json",
+		"/D/Cuurent Google Drive/Current/Selenium/TestIndicatorsAutomation/TestIndicatorsAutomation/TTFTopBarPages/TTFMySettings.cs",
+		"/C/Users/Admin/AppData/Roaming/Sublime Text 3/Packages/User/Plain text.sublime-settings",
+		"/D/Google Диск СТАРЫЙ/Selenium/TestIndicatorsAutomation/TestIndicatorsAutomation.sublime-project",
+		"/D/Google Диск СТАРЫЙ/Selenium/TestIndicatorsAutomation/TestIndicatorsAutomation.sln"
+	],
+	"find":
+	{
+		"height": 39.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"test",
+			"location"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": true,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "UnitTestProject1/TTFLoginTest.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1125,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								484,
+								484
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/C#.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 186.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "TestIndicatorsAutomation/TTFTopBarPages/TTFHomePage.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1418,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								536,
+								536
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/C#.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 279.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 39.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 178.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.variable_get":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "TestIndicatorsAutomation.sublime-project",
+	"replace":
+	{
+		"height": 74.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 394.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

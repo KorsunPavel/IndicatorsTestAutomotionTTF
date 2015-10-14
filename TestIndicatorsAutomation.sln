@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestIndicatorsAutomation", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestsForIndicators", "UnitTestProject1\TestsForIndicators.csproj", "{905CDB61-F0F0-4CDA-ACCD-6BBF2928012A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestIndicatorAutomationSelnium", "TestIndicatorAutomationSelnium\TestIndicatorAutomationSelnium.csproj", "{8DDB8AF8-6B49-487C-92D1-712A4D840AF7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestIndicatorAutomationSelnium", "TestIndicatorAutomationSelnium\TestIndicatorAutobmationSelnium.csproj", "{8DDB8AF8-6B49-487C-92D1-712A4D840AF7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
