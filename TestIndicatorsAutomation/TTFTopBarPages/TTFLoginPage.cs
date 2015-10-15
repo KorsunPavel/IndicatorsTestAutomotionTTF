@@ -17,18 +17,24 @@ namespace TestIndicatorsAutomation
         {
             get; set;
         }
-        /*private static string userName;
-        public static string UserName
+        public static string Password
         {
-            get
-            {
-                return userName;
-            }
-            set
-            {
-                userName = "testadmin";
-            }
-        }*/
+            get;
+            internal set;
+        }
+
+        /*private static string userName;
+public static string UserName
+{
+   get
+   {
+       return userName;
+   }
+   set
+   {
+       userName = "testadmin";
+   }
+}*/
         public static void IsAt(string pageNameString)
         {
             pageNameString = pageNameString.Replace('_', ' ');
@@ -47,7 +53,6 @@ namespace TestIndicatorsAutomation
             Find.ByContent<HtmlControl>(pageNameString);
             barElements.Click();
         }
-
         public static  void GoToByUrl(string adress)
         {
             TTFDriver.myManager.ActiveBrowser.NavigateTo(adress); ///AdminSectionListing
@@ -55,38 +60,43 @@ namespace TestIndicatorsAutomation
 
         public static LoginCommand LoginAs(string userName)
         {
-            return new LoginCommand(userName);
+            LoginCommand loginData = new LoginCommand(userName);
+            return loginData;
         }
         //
         public class LoginCommand
         {
-            private string _password;
-            private readonly string _userName;
-            //
             public LoginCommand(string userName)
             {
-                this._userName = userName;
+                UserName = userName;
             }
             //
             public LoginCommand WithPassword(string password)
             {
-                this._password = password;
+                Password = password;
                 return this;
             }
             //
-            public void Login()
+            public  void CheckTheFirstPage()
+            {
+                HtmlInputText id = TTFDriver.myManager.ActiveBrowser.Find.ById<HtmlInputText>("UserName");
+                if (id != null)
+                    Login();
+                TTFMySettings.VerifyCorrectLogging(UserName, Password);
+                TTFMySettings.CheckCurrenLanguage();
+            }
+
+            public  static void Login()
             {
                 HtmlInputText userfield = TTFDriver.myManager.ActiveBrowser.Find.ById<HtmlInputText>("UserName");
-                userfield.Text = _userName;
+                userfield.Text = UserName;
 
-                var password = TTFDriver.myManager.ActiveBrowser.Find.ById<HtmlInputPassword>("Password");
-                password.Text = _password;
+                var passwordfield = TTFDriver.myManager.ActiveBrowser.Find.ById<HtmlInputPassword>("Password");
+                passwordfield.Text = Password;
 
                 TTFDriver.myManager.ActiveBrowser.Find.ByAttributes<HtmlButton>("type=submit").Click();
             }
         }
-
-
     }
 }
 

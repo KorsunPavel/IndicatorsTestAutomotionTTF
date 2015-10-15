@@ -33,7 +33,7 @@ namespace UnitTestProject1
             // TTFLoginPage.GoToByUrl("~/Indicators/Edit/244");
             TTFLoginPage.GoToByUrl("~/Indicators/Create");
             TTFLoginPage.LoginAs(TTFLoginPage.UserName = "user40")
-            .WithPassword("111111").Login();
+            .WithPassword("111111").CheckTheFirstPage();
 
             TTFIndicatorsGrid.
             TTFnewIndicatorCreate.EnterValueType("Number").AggregationType("NONE").CreateIndicator();

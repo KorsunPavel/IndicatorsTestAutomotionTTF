@@ -22,16 +22,15 @@ namespace UnitTestProject1
         [TestMethod]
         public void Admin_User_Can_Login()
         {
-            TTFLoginPage.GoToByUrl("~"); 
+            // uncomment below line if you want to go to Log in page
+            //TTFDriver.myManager.ActiveBrowser.ClearCache(BrowserCacheType.Cookies);
 
+            TTFLoginPage.GoToByUrl("~"); 
+            
             TTFLoginPage.LoginAs(TTFLoginPage.UserName="testadmin")
-                .WithPassword("P@ssw0rd").Login();
+                .WithPassword("P@ssw0rd").CheckTheFirstPage();
             TTFHomePage.IsAt(TitlesList.EnumTitlesTopBar.Home.ToString());
-            TTFLoginPage.GoToByUrl("~/MySettings");
-            Assert.IsTrue(
-              TTFMySettings.VerifyCorrectLoggining(TTFLoginPage.UserName)
-                , "MySettings page broken");
-        }
+                   }
         [TestCleanup]
         public void Cleanup()
         {

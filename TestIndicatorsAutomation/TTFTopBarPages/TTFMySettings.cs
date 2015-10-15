@@ -10,23 +10,36 @@ using ArtOfTest.WebAii.Core;
 using System.Threading;
 using System.Drawing;
 using ArtOfTest.WebAii.TestTemplates;
+using ArtOfTest.Common.UnitTesting;
 
 namespace TestIndicatorsAutomation
 {
-    public class TTFMySettings
+    public  class TTFMySettings
     {
-        public static bool VerifyCorrectLoggining(string userName)
+        static int attempt = 0;
+
+        public  static void VerifyCorrectLogging(string userName, string password)
         {
-            // verifying the account name presence in the Mysseting page
-            try
+            TTFDriver.myManager.ActiveBrowser.Find.ByAttributes<HtmlAnchor>("href=~MySettings").Click();
+            var myProfile = TTFDriver.myManager.ActiveBrowser.Find.ByAttributes<HtmlControl>("class=my-profile");
+            Assert.IsNotNull(myProfile, "Wrong link or the page broken");
+            bool currentUser = myProfile.Find.ByTagIndex<HtmlDiv>("div", 1).TextContent.Contains(userName);
+            if (!currentUser)
             {
-                return TTFDriver.myManager.ActiveBrowser.Find.ByContent<HtmlSpan>(userName).InnerText.Equals(userName);
+                TTFDriver.myManager.ActiveBrowser.Find.ByAttributes<HtmlAnchor>("href=~LogOff").Click();
+                attempt++;
+                if (attempt > 1) throw new Exception("Logging as wrong user");
+                TTFLoginPage.LoginCommand.Login();
+                TTFMySettings.VerifyCorrectLogging(TTFLoginPage.UserName, TTFLoginPage.Password);
             }
-            catch
-            {
-                throw new Exception("My settings page broken");
-            }
-            
+        }
+
+        internal static void CheckCurrenLanguage()
+        {
+            bool currentLanguage = TTFDriver.myManager.ActiveBrowser.Find.ById<HtmlSelect>("CurrentLanguageId").SelectedOption.Text.Contains("English");
+            if (!currentLanguage)
+                TTFDriver.myManager.ActiveBrowser.Find.ById<HtmlSelect>("CurrentLanguageId").SelectByPartialText("English", true);
+            TTFDriver.myManager.ActiveBrowser.Find.ByAttributes<HtmlButton>("type=submit").Click();
         }
     }
 }

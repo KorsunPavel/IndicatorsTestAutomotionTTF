@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TestIndicatorsAutomation;
+using ArtOfTest.WebAii.Core;
 
 namespace UnitTestProject1
 {
@@ -20,11 +21,12 @@ namespace UnitTestProject1
         [TestMethod]
         public void TestMethod1()
         {
+          //  TTFDriver.myManager.ActiveBrowser.ClearCache(BrowserCacheType.Cookies);
             TTFLoginPage.GoToByUrl("~");
             TTFLoginPage.LoginAs(TTFLoginPage.UserName = "user40")
-              .WithPassword("111111").Login();
+              .WithPassword("111111").CheckTheFirstPage();
              TTFHomePage.IsAt(TitlesList.EnumTitlesTopBar.Home.ToString());
-            //*********
+            //*********ErCx
             TTFHomePage.GoToItem(
                TitlesList.EnumTitlesTopBar.Administration.ToString()
                );
